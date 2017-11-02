@@ -15,6 +15,9 @@
 		0C8EC7A81FAAE36D004F00F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EC7A71FAAE36D004F00F6 /* main.m */; };
 		0C8EC7B21FAAE36D004F00F6 /* ProjectToolsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EC7B11FAAE36D004F00F6 /* ProjectToolsTests.m */; };
 		0C8EC7BD1FAAE36D004F00F6 /* ProjectToolsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EC7BC1FAAE36D004F00F6 /* ProjectToolsUITests.m */; };
+		0C8EC7D21FAAE740004F00F6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EC7D11FAAE740004F00F6 /* Reachability.m */; };
+		0C8EC7D61FAAE8D1004F00F6 /* NSObject+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EC7D51FAAE8D1004F00F6 /* NSObject+Utility.m */; };
+		0C8EC7D91FAAFC7C004F00F6 /* NetworkParseMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EC7D81FAAFC7C004F00F6 /* NetworkParseMapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 		0C8EC7B81FAAE36D004F00F6 /* ProjectToolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectToolsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C8EC7BC1FAAE36D004F00F6 /* ProjectToolsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectToolsUITests.m; sourceTree = "<group>"; };
 		0C8EC7BE1FAAE36D004F00F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C8EC7D01FAAE740004F00F6 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		0C8EC7D11FAAE740004F00F6 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		0C8EC7D41FAAE8D1004F00F6 /* NSObject+Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utility.h"; sourceTree = "<group>"; };
+		0C8EC7D51FAAE8D1004F00F6 /* NSObject+Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Utility.m"; sourceTree = "<group>"; };
+		0C8EC7D71FAAFC7C004F00F6 /* NetworkParseMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkParseMapper.h; sourceTree = "<group>"; };
+		0C8EC7D81FAAFC7C004F00F6 /* NetworkParseMapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkParseMapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +110,7 @@
 		0C8EC7971FAAE36D004F00F6 /* ProjectTools */ = {
 			isa = PBXGroup;
 			children = (
+				0C8EC7CA1FAAE441004F00F6 /* ProjectCommon */,
 				0C8EC7981FAAE36D004F00F6 /* AppDelegate.h */,
 				0C8EC7991FAAE36D004F00F6 /* AppDelegate.m */,
 				0C8EC79B1FAAE36D004F00F6 /* ViewController.h */,
@@ -130,6 +140,59 @@
 				0C8EC7BE1FAAE36D004F00F6 /* Info.plist */,
 			);
 			path = ProjectToolsUITests;
+			sourceTree = "<group>";
+		};
+		0C8EC7CA1FAAE441004F00F6 /* ProjectCommon */ = {
+			isa = PBXGroup;
+			children = (
+				0C8EC7CD1FAAE489004F00F6 /* Utility */,
+				0C8EC7CC1FAAE481004F00F6 /* Control */,
+				0C8EC7CB1FAAE481004F00F6 /* Module */,
+			);
+			path = ProjectCommon;
+			sourceTree = "<group>";
+		};
+		0C8EC7CB1FAAE481004F00F6 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		0C8EC7CC1FAAE481004F00F6 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		0C8EC7CD1FAAE489004F00F6 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0C8EC7D31FAAE89F004F00F6 /* Object */,
+				0C8EC7CF1FAAE70C004F00F6 /* NetWork */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		0C8EC7CF1FAAE70C004F00F6 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				0C8EC7D01FAAE740004F00F6 /* Reachability.h */,
+				0C8EC7D11FAAE740004F00F6 /* Reachability.m */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
+		0C8EC7D31FAAE89F004F00F6 /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				0C8EC7D41FAAE8D1004F00F6 /* NSObject+Utility.h */,
+				0C8EC7D51FAAE8D1004F00F6 /* NSObject+Utility.m */,
+				0C8EC7D71FAAFC7C004F00F6 /* NetworkParseMapper.h */,
+				0C8EC7D81FAAFC7C004F00F6 /* NetworkParseMapper.m */,
+			);
+			path = Object;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,7 +258,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0900;
-				ORGANIZATIONNAME = zhaoyang;
+				ORGANIZATIONNAME = ZhaoyangLi;
 				TargetAttributes = {
 					0C8EC7941FAAE36D004F00F6 = {
 						CreatedOnToolsVersion = 9.0;
@@ -267,7 +330,10 @@
 			files = (
 				0C8EC79D1FAAE36D004F00F6 /* ViewController.m in Sources */,
 				0C8EC7A81FAAE36D004F00F6 /* main.m in Sources */,
+				0C8EC7D21FAAE740004F00F6 /* Reachability.m in Sources */,
+				0C8EC7D61FAAE8D1004F00F6 /* NSObject+Utility.m in Sources */,
 				0C8EC79A1FAAE36D004F00F6 /* AppDelegate.m in Sources */,
+				0C8EC7D91FAAFC7C004F00F6 /* NetworkParseMapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
