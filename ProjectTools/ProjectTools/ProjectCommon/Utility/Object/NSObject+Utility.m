@@ -9,6 +9,8 @@
 #import "NSObject+Utility.h"
 #import <foundation/NSObjCRuntime.h>
 #import <objc/runtime.h>
+#import "NetworkParseMapper.h"
+#import "SearchNetResult.h"
 
 @implementation NSObject (Utility)
 
@@ -71,8 +73,90 @@
         }
         
         //获取Name
-        
+        if ((iVar != nil) && (![dictionaryJson isEqual:[NSNull null]])) {
+            //通过propertyName去Json中寻找Value
+            id jsonValue = [dictionaryJson objectForKey:propertyName];
+            //dictionary对象
+            if (([jsonValue isKindOfClass:[NSDictionary class]]) || ([jsonValue isKindOfClass:[NSMutableDictionary class]])) {
+                //获取数据类型
+                NSString *varType = [NetworkParseMapper getVarTypeByVar:propertyName formClass:className];
+                if (varType != nil) {
+                    //创建对象
+                    Class varClass = NSClassFromString(varType);
+                    id varObject = [[varClass alloc]init];
+                    
+                    //进行自定义解析
+                    if ((varObject != nil) && ([varObject respondsToSelector:@selector(parseNetResult:)])) {
+                        [varObject parseNetResult:dictionaryJson];
+                        
+                    }
+                    //递归进行下层解析
+                    else{
+                        [varObject parseJsonAutomatic:jsonValue];
+                    }
+                    
+                    //赋值
+                    object_setIvar(self, iVar, varObject);
+                }
+            }
+            //array数组
+            else if ([jsonValue isKindOfClass:[NSArray class]] || ([jsonValue isKindOfClass:[NSMutableArray class]])){
+                //获取数据类型
+                NSString *varType = [NetworkParseMapper getVarTypeByVar:propertyName formClass:className];
+                if (varType != nil) {
+                    NSMutableArray *arrayDest = [[NSMutableArray alloc]init];
+                    //基本数据类型
+                    if (([varType isEqualToString:@"NSString"]) || ([varType isEqualToString:@"NSNumber"])) {
+                        [arrayDest addObjectsFromArray:jsonValue];
+                    }else{
+                        Class varClass = NSClassFromString(varType);
+                        //解析
+                        NSInteger jsonCount = [jsonValue count];
+                        for (NSInteger i = 0; i < jsonCount; i++) {
+                            NSDictionary *dictionaryJson = [jsonValue objectAtIndex:i];
+                            if (dictionaryJson != nil) {
+                                id varObject = [[varClass alloc]init];
+                                // 进行自定义解析
+                                if((varObject != nil) && ([varObject respondsToSelector:@selector(parseNetResult:)]))
+                                {
+                                    [varObject parseNetResult:dictionaryJson];
+                                }
+                                // 递归进行下层解析
+                                else
+                                {
+                                    [varObject parseJsonAutomatic:dictionaryJson];
+                                }
+                                // 需添加判断
+                                if (varObject != nil) {
+                                    
+                                    [arrayDest addObject:varObject];
+                                }
+                            }
+                        }
+                        
+                        
+                    }
+                    
+                    //赋值
+                    object_setIvar(self, iVar, arrayDest);
+                }
+            }
+            // NSNULL
+            else if([jsonValue isKindOfClass:[NSNull class]])
+            {
+                
+            }
+            // 其他的对象(直接赋值,!!!!!如果还有dictionary,array之类的其他特殊对象，继续在上面补充!!!!!)
+            else
+            {
+                // 赋值
+                object_setIvar(self, iVar, jsonValue);
+            }
+            
+        }
     }
+    free(properties);
+    
 }
 
 @end

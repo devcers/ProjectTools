@@ -18,6 +18,7 @@
 		0C8EC7D21FAAE740004F00F6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EC7D11FAAE740004F00F6 /* Reachability.m */; };
 		0C8EC7D61FAAE8D1004F00F6 /* NSObject+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EC7D51FAAE8D1004F00F6 /* NSObject+Utility.m */; };
 		0C8EC7D91FAAFC7C004F00F6 /* NetworkParseMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EC7D81FAAFC7C004F00F6 /* NetworkParseMapper.m */; };
+		0C8EC7DC1FAC0E9D004F00F6 /* SearchNetResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EC7DB1FAC0E9D004F00F6 /* SearchNetResult.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		0C8EC7D51FAAE8D1004F00F6 /* NSObject+Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Utility.m"; sourceTree = "<group>"; };
 		0C8EC7D71FAAFC7C004F00F6 /* NetworkParseMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkParseMapper.h; sourceTree = "<group>"; };
 		0C8EC7D81FAAFC7C004F00F6 /* NetworkParseMapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkParseMapper.m; sourceTree = "<group>"; };
+		0C8EC7DA1FAC0E9D004F00F6 /* SearchNetResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchNetResult.h; sourceTree = "<group>"; };
+		0C8EC7DB1FAC0E9D004F00F6 /* SearchNetResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchNetResult.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +194,8 @@
 				0C8EC7D51FAAE8D1004F00F6 /* NSObject+Utility.m */,
 				0C8EC7D71FAAFC7C004F00F6 /* NetworkParseMapper.h */,
 				0C8EC7D81FAAFC7C004F00F6 /* NetworkParseMapper.m */,
+				0C8EC7DA1FAC0E9D004F00F6 /* SearchNetResult.h */,
+				0C8EC7DB1FAC0E9D004F00F6 /* SearchNetResult.m */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 			files = (
 				0C8EC79D1FAAE36D004F00F6 /* ViewController.m in Sources */,
 				0C8EC7A81FAAE36D004F00F6 /* main.m in Sources */,
+				0C8EC7DC1FAC0E9D004F00F6 /* SearchNetResult.m in Sources */,
 				0C8EC7D21FAAE740004F00F6 /* Reachability.m in Sources */,
 				0C8EC7D61FAAE8D1004F00F6 /* NSObject+Utility.m in Sources */,
 				0C8EC79A1FAAE36D004F00F6 /* AppDelegate.m in Sources */,
