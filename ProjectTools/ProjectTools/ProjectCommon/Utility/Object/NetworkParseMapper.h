@@ -15,4 +15,5 @@
 //根据配置文件,获取Class中某个复合变量的数据Type
 + (NSString *)getVarTypeByVar:(NSString *)varName formClass:(NSString *)className;
 
+
 @end
